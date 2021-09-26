@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SimpleApp</title>
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0;
+                transition:0.5s ease-in-out;
+
+            }
+            #changeBtn{
+                background-color: black;
+                color:whitesmoke;
+                border:0;
+                padding: 20px 20px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div>
+            <button id="changeBtn">Change Colour</button>
+        </div>
+        <script>
+            const changeBtn = document.getElementById('changeBtn');
+            const body= document.body;
+
+            changeBtn.addEventListener("click",changeBg);
+
+            function changeBg(){
+                const R = getRandomColor();
+                const G = getRandomColor();
+                const B = getRandomColor();
+
+                const color = `rgb(${R},${G},${B})`;
+                console.log(color);
+                body.style.backgroundColor = color;
+
+            }
+
+            function getRandomColor(){
+                return Math.floor(Math.random()*256);
+
+            }
+            
+        </script>
+
+    </body>
+</html>
